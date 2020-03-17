@@ -14,14 +14,13 @@ params:
   AWS_SECRET_ACCESS_KEY:
 
 run:
-  path: bash
+  path: sh
   args:
+  - -exc
   - |
     pip3 install virtualenv
     virtualenv env
     . ./env/bin/activate
     pip3 install -r ./requirements.txt
-    pwd
-    ls -al
     ./prune.py $AWS_ACCOUNT_ID
   dir: lambda-cleanup
