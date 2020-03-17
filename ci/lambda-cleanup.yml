@@ -1,0 +1,21 @@
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: python
+    tag: alpine
+inputs:
+  - name: lambda-cleanup
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    pip3 install virtualenv
+    virtualenv env
+    . ./env/bin/activate
+    pip3 install -r ./requirements.txt
+    pwd
+    ls -al
+    ./prune.py $AWS_ACCOUNT_ID
+  dir: lambda-cleanup
