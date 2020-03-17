@@ -14,9 +14,8 @@ params:
   AWS_SECRET_ACCESS_KEY:
 
 run:
-  path: sh
+  path: bash
   args:
-  - -exc
   - |
     pip3 install virtualenv
     virtualenv env
