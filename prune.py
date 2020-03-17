@@ -23,7 +23,7 @@ def prune_function(client, function):
 
 def remove_version(client, arn):
     print(f"Deleting '{arn}'.")
-    #client.delete_function(FunctionName=arn)
+    client.delete_function(FunctionName=arn)
 
 def lambda_client(account):
     sts  = boto3.client('sts')
